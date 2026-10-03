@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* NexTracker "Fresh" theme.
+   The app's existing `indigo-*` classes are remapped to the brand green, so every
+   page picks up the new accent without per-file changes. */
+@theme {
+  --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Sora', 'Manrope', ui-sans-serif, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-indigo-50: #effaf6;
+  --color-indigo-100: #d6f2e9;
+  --color-indigo-200: #aee5d3;
+  --color-indigo-300: #7ad2b8;
+  --color-indigo-400: #3bbfa3;
+  --color-indigo-500: #14a58a;
+  --color-indigo-600: #0f8a73;
+  --color-indigo-700: #0b6f5c;
+  --color-indigo-800: #0a5849;
+  --color-indigo-900: #0a4639;
+  --color-indigo-950: #042a22;
+
+  --color-slate-50: #f4f8f7;
+  --color-slate-100: #eaf1ef;
+  --color-slate-200: #d9e6e2;
+  --color-slate-300: #bfd1cc;
+  --color-slate-400: #8fa7a0;
+  --color-slate-500: #587169;
+  --color-slate-600: #43584f;
+  --color-slate-700: #2e4039;
+  --color-slate-800: #1b2f2a;
+  --color-slate-900: #10231f;
+  --color-slate-950: #0a1815;
+
+  --color-sidebar: #12302b;
+  --color-sidebar-deep: #0d2420;
+
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+
+  --shadow-card: 0 2px 0 rgb(16 35 31 / 0.04), 0 12px 24px -16px rgb(16 35 31 / 0.25);
+  --shadow-pop: 0 24px 60px -20px rgb(16 35 31 / 0.45);
+
+  --animate-fade-in: fade-in 0.18s ease-out;
+  --animate-pop-in: pop-in 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+  @keyframes pop-in {
+    from { opacity: 0; transform: translateY(8px) scale(0.98) }
+    to { opacity: 1; transform: none }
+  }
+}
+
+@layer base {
+  /* Tailwind v4 defaults borders to currentColor; keep the soft green-grey. */
+  *, ::after, ::before { border-color: var(--color-slate-200); }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-slate-50);
+    color: var(--color-slate-900);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  :focus-visible { outline: 2px solid var(--color-indigo-500); outline-offset: 2px; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--color-slate-300); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-slate-400); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::after, ::before { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+@media print {
+  .app-shell, .app-main { height: auto !important; overflow: visible !important; display: block !important; }
+  body { background: #fff; }
+  @page { margin: 14mm; }
+}
