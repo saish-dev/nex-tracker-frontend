@@ -160,7 +160,7 @@ export const Reports = () => {
         <>
           <div>
             <h3 className="text-xl font-bold text-slate-900">{person.name}</h3>
-            <p className="text-sm text-slate-500 capitalize">{person.role.replace(/_/g, ' ')} · {periodLabel}</p>
+            <p className="text-sm text-slate-500"><span className="capitalize">{person.role.replace(/_/g, ' ')}</span> · {periodLabel}</p>
           </div>
 
           <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">

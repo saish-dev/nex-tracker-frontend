@@ -316,7 +316,7 @@ export const Modal = ({ isOpen, onClose, title, children, size = 'md' }: ModalPr
         <div className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm animate-fade-in" onClick={onClose} />
         <span className="hidden sm:inline-block sm:h-screen sm:align-middle" aria-hidden="true">&#8203;</span>
         <div className={cn(
-            "inline-block transform overflow-hidden rounded-3xl bg-white text-left align-bottom shadow-pop animate-pop-in sm:my-8 sm:w-full sm:align-middle border border-slate-200/80",
+            "relative z-10 inline-block overflow-hidden rounded-3xl bg-white text-left align-bottom shadow-pop animate-pop-in sm:my-8 sm:w-full sm:align-middle border border-slate-200/80",
             sizeClasses[size]
         )}>
           <div className="bg-white px-5 pt-5 pb-5 sm:p-6">
